@@ -2,3 +2,6 @@ My emacs configuration
 
 Although I am a VIM user, there are somethings (read: org-mode) that Emacs does
 superbly well. Ergo, Emacs!
+
+Props to @jaseemabid and @vu3rdd for their init.el files. Most of this comes
+from there. Cheers!
