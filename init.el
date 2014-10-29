@@ -14,7 +14,7 @@
       visible-bell t
       org-log-done t
       save-place t
-      column-number-mode)
+      column-number-mode t)
 
 (setq c-basic-indent 4
       c-basic-offset 4
@@ -35,10 +35,18 @@
 (global-set-key (kbd "C-x 0") 'beginning-of-line)
 (global-set-key (kbd "C-x v") 'split-window-right)
 (global-set-key (kbd "C-x s") 'split-window-bottom)
-(global-set-key (kbd "C-x C-s") 'magit-status)
+(global-set-key (kbd "C-c C-s") 'magit-status)
+(global-set-key (kbd "M-n") 'scroll-up-line)
+(global-set-key (kbd "M-p") 'scroll-down-line)
 
 (custom-set-variables
  '(initial-frame-alist (quote ((fullscreen . maximized)))))
+
+(require 'whitespace)
+(setq whitespace-line-column 80) ;; limit line length
+(setq whitespace-style '(face lines-tail))
+
+(global-whitespace-mode +1)
 
 (require 'package)
 (add-to-list 'package-archives
@@ -48,6 +56,7 @@
 (package-initialize)
 
 (unless package-archive-contents
+
   (package-refresh-contents))
 
 (setq package-list
