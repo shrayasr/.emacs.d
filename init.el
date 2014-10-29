@@ -35,6 +35,7 @@
 (global-set-key (kbd "C-x 0") 'beginning-of-line)
 (global-set-key (kbd "C-x v") 'split-window-right)
 (global-set-key (kbd "C-x s") 'split-window-bottom)
+(global-set-key (kbd "C-x C-s") 'magit-status)
 
 (custom-set-variables
  '(initial-frame-alist (quote ((fullscreen . maximized)))))
@@ -50,14 +51,15 @@
   (package-refresh-contents))
 
 (setq package-list
-      '(monokai-theme
+      '(zenburn-theme
         racket-mode
         clojure-mode
         cider
+        magit
         paredit))
 
 (dolist (package package-list)
   (unless (package-installed-p package)
     (package-install package)))
 
-(load-theme 'monokai t)
+(load-theme 'zenburn t)
