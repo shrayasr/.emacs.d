@@ -38,15 +38,32 @@
 (global-set-key (kbd "C-c C-s") 'magit-status)
 (global-set-key (kbd "M-n") 'scroll-up-line)
 (global-set-key (kbd "M-p") 'scroll-down-line)
+(global-set-key (kbd "C-s") 'isearch-forward-regexp)
+(global-set-key (kbd "C-r") 'isearch-backward-regexp)
+(global-set-key (kbd "C-M-s") 'isearch-forward)
+(global-set-key (kbd "C-M-r") 'isearch-backward)
 
-(custom-set-variables
- '(initial-frame-alist (quote ((fullscreen . maximized)))))
+;(Custom-set-variables
+; '(initial-frame-alist (quote ((fullscreen . maximized)))))
 
 (require 'whitespace)
 (setq whitespace-line-column 80) ;; limit line length
 (setq whitespace-style '(face lines-tail))
 
 (global-whitespace-mode +1)
+
+(ido-mode t)
+(setq ido-enable-flex-matching t
+      ido-case-fold t
+      ido-confirm-unique-completion t
+      ido-max-prospects 5)
+
+(show-paren-mode 1)
+
+(setq org-directory "~/Dropbox/org")
+(setq org-default-notes-file (concat org-directory "/notes.org"))
+(define-key global-map (kbd "M-<f6>") 'org-capture)
+
 
 (require 'package)
 (add-to-list 'package-archives
@@ -55,8 +72,7 @@
              '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (package-initialize)
 
-(unless package-archive-contents
-
+(unless package-archive-contents 
   (package-refresh-contents))
 
 (setq package-list
@@ -64,6 +80,7 @@
         racket-mode
         clojure-mode
         cider
+        smex
         magit
         paredit))
 
@@ -72,3 +89,9 @@
     (package-install package)))
 
 (load-theme 'zenburn t)
+
+(require 'smex)
+(smex-initialize)
+(global-set-key (kbd "M-x") 'smex)
+
+(add-to-list 'exec-path "C:/Program Files (x86)/Git/bin")
