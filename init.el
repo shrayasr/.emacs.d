@@ -32,7 +32,6 @@
     (set-frame-font "Monaco-14")
   (set-frame-font "Consolas-12"))
 
-(global-set-key (kbd "C-x 0") 'beginning-of-line)
 (global-set-key (kbd "C-x v") 'split-window-right)
 (global-set-key (kbd "C-x s") 'split-window-bottom)
 (global-set-key (kbd "C-c C-s") 'magit-status)
