@@ -14,7 +14,8 @@
       visible-bell t
       org-log-done t
       save-place t
-      column-number-mode t)
+      column-number-mode t
+      make-backup-files nil)
 
 (setq c-basic-indent 4
       c-basic-offset 4
@@ -32,7 +33,6 @@
     (set-frame-font "Monaco-14")
   (set-frame-font "Consolas-12"))
 
-(global-set-key (kbd "C-x 0") 'beginning-of-line)
 (global-set-key (kbd "C-x v") 'split-window-right)
 (global-set-key (kbd "C-x s") 'split-window-bottom)
 (global-set-key (kbd "C-c C-s") 'magit-status)
@@ -43,8 +43,8 @@
 (global-set-key (kbd "C-M-s") 'isearch-forward)
 (global-set-key (kbd "C-M-r") 'isearch-backward)
 
-;(Custom-set-variables
-; '(initial-frame-alist (quote ((fullscreen . maximized)))))
+(custom-set-variables
+ '(initial-frame-alist (quote ((fullscreen . maximized)))))
 
 (require 'whitespace)
 (setq whitespace-line-column 80) ;; limit line length
@@ -59,11 +59,6 @@
       ido-max-prospects 5)
 
 (show-paren-mode 1)
-
-(setq org-directory "~/Dropbox/org")
-(setq org-default-notes-file (concat org-directory "/notes.org"))
-(define-key global-map (kbd "M-<f6>") 'org-capture)
-
 
 (require 'package)
 (add-to-list 'package-archives
