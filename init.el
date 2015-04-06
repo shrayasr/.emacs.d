@@ -74,6 +74,7 @@
       '(zenburn-theme
         racket-mode
         clojure-mode
+        evil
         cider
         smex
         magit
@@ -88,5 +89,9 @@
 (require 'smex)
 (smex-initialize)
 (global-set-key (kbd "M-x") 'smex)
+
+(require 'evil)
+(evil-mode 1)
+(define-key evil-normal-state-map ";" 'evil-ex)
 
 (add-to-list 'exec-path "C:/Program Files (x86)/Git/bin")
